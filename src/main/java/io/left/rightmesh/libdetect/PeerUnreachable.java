@@ -1,14 +1,11 @@
+package io.left.rightmesh.libdetect;
+
 import java.net.InetAddress;
 
 public class PeerUnreachable {
-    InetAddress address;
+    public InetAddress address;
 
     PeerUnreachable(InetAddress address) {
         this.address = address;
     }
-
-    InetAddress getAddress() {
-        return address;
-    }
-
 }

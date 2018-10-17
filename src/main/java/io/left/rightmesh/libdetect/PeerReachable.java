@@ -1,9 +1,11 @@
+package io.left.rightmesh.libdetect;
+
 import java.net.InetAddress;
 import java.net.Socket;
 
 public class PeerReachable {
-    InetAddress address;
-    Socket socket;
+    public InetAddress address;
+    public Socket socket;
 
     PeerReachable(InetAddress address, Socket socket) {
         this.address = address;

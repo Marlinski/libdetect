@@ -1,10 +1,10 @@
 # libdetect
-[![](https://jitpack.io/v/RightMesh/librxbus.svg)](https://jitpack.io/#compscidr/libdetect)
+[![](https://jitpack.io/v/RightMesh/libdetect.svg)](https://jitpack.io/#RightMesh/libdetect)
 
-Performs detection of open TCP ports on the local networks that a particular device is connected to.
+performs discovery of peer and service on the LAN using brute force TCP knocking on all 
+connected subnets.
 
-You can use this library
-in your project with gradle using jitpack:
+You can use this library in your project with gradle using jitpack:
 
 ```java
 repositories {
@@ -14,35 +14,40 @@ repositories {
 
 ```java
 dependencies {
-   implementation 'com.github.compscidr:libdetect:v1.0'
+   implementation 'com.github.compscidr:libdetect:master-SNAPSHOT'
 }
 ```
 
 # Features
-* Can monitor multiple TCP ports with subsequent calls to start(port) function.
+
+* Single threaded using librxtcp and rxjava
 * Supports callbacks for the following two events:
-  * PeerReachable events generated when a peer becomes reachable on the local network with the specified TCP port.
-  * PeerUnreachable events generated when a previously reachable peer is no longer reachable with the specified TCP port.
+  * PeerReachable events generated when a peer becomes reachable on the local network on the specified TCP port.
+  * PeerUnreachable events generated when a previously reachable peer is no longer reachable on the specified TCP port
 
 ## Register for TCP peer discovery:
-For example let's suppose we wish to have events generated for any port 80 tcp servers running on all local networks:
-```
-LibDetect test = new LibDetect();
 
-test.start(80, new ActionListener() {
+The port used by LibDetect is used for discovery only and is not expected to be used for an actual communication
+by the calling service. It only be meant to use to identify the service of the caller. You can start
+a discovery by calling LibDetect.start(port, callback) like so:
+
+```
+
+LibDetectHandle handle = LibDetect.start(4000, new ActionListener() {
     @Override
     public void onPeerReachable(PeerReachable peer) {
-        System.out.println("PEER REACHABLE on " + peer.address.getHostAddress() + " port: " + 80);
+        System.out.println("PEER REACHABLE on " + peer.address.getHostAddress());
     }
 
     @Override
     public void onPeerUnreachable(PeerUnreachable peer) {
-        System.out.println("PEER UNREACHABLE on " + peer.address.getHostAddress() + " port: " + 80);
+        System.out.println("PEER UNREACHABLE on " + peer.address.getHostAddress());
     }
 }, false);
 ```
 
-## Cleanup (stop listening for peer discovery events)
+to stop LibDetect from monitoring the LAN, use the stop() method on the handle:
+
 ```
-test.stop(80);
+handle.stop();
 ```
