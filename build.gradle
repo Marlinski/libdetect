@@ -24,7 +24,7 @@ dependencies {
     // RxJava library for reactive programming
     api 'io.reactivex.rxjava2:rxjava:2.1.1'
 
-    implementation project(path: ':librxtcp')
+    implementation 'com.github.RightMesh:librxtcp:master-SNAPSHOT'
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:26.0-jre'
