@@ -7,7 +7,6 @@ import java.util.*;
 import io.left.rightmesh.librxtcp.RxTCP;
 import io.reactivex.Flowable;
 import io.reactivex.Observable;
-import io.reactivex.schedulers.Schedulers;
 
 /*
  * Detects other devices on the same subnet also using io.left.rightmesh.libdetect.LibDetect on the same port.
