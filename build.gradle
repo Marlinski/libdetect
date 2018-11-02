@@ -19,7 +19,7 @@ repositories {
 
 dependencies {
     // librxtcp
-    implementation 'com.github.RightMesh:librxtcp:-SNAPSHOT'
+    implementation 'com.github.RightMesh:librxtcp:3da2e1c273'
 
     // RxJava library for reactive programming
     implementation 'io.reactivex.rxjava2:rxjava:2.2.3'
