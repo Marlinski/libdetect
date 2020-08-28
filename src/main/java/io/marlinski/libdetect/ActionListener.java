@@ -1,4 +1,4 @@
-package io.left.rightmesh.libdetect;
+package io.marlinski.libdetect;
 
 public interface ActionListener {
     void onPeerReachable(PeerReachable peer);

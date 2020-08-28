@@ -1,12 +1,16 @@
-package io.left.rightmesh.libdetect;
+package io.marlinski.libdetect;
 
-import java.net.*;
+import java.net.Inet4Address;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.net.UnknownHostException;
 import java.nio.ByteBuffer;
-import java.util.*;
+import java.util.Enumeration;
 
-import io.left.rightmesh.librxtcp.RxTCP;
-import io.reactivex.Flowable;
-import io.reactivex.Observable;
+import io.marlinski.librxtcp.RxTCP;
+import io.reactivex.rxjava3.core.Flowable;
+import io.reactivex.rxjava3.core.Observable;
 
 /*
  * Detects other devices on the same subnet also using io.left.rightmesh.libdetect.LibDetect on the same port.

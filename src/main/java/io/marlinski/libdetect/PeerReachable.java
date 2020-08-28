@@ -1,4 +1,4 @@
-package io.left.rightmesh.libdetect;
+package io.marlinski.libdetect;
 
 import java.net.InetAddress;
 import java.net.Socket;

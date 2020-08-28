@@ -19,10 +19,10 @@ repositories {
 
 dependencies {
     // librxtcp
-    implementation 'com.github.RightMesh:librxtcp:3da2e1c273'
+    implementation 'com.github.Marlinski:librxtcp:0ea35c2708'
 
     // RxJava library for reactive programming
-    implementation 'io.reactivex.rxjava2:rxjava:2.2.3'
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
